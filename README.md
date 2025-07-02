@@ -20,9 +20,9 @@ Example:
 === Caesar Cipher===
 
 Type 'encrypt' for encryption, type 'decrypt' for decryption:
-encrypt
+encrypt<br>
 Type your message:
-Gagan V B@123
+Gagan V B@123<br>
 Enter shift key:
 8
 
@@ -32,36 +32,36 @@ Type 'yes' to continue, type 'no' to exit:
 yes
 
 Type 'encrypt' for encryption, type 'decrypt' for decryption:
-decrypt
+decrypt<br>
 Type your message:
-Oioiv2$2J|9ab
+Oioiv2$2J|9ab<br>
 Enter shift key:
 8
 
 Decrypted Message: Gagan V B@123
 
-Type 'yes' to continue, type 'no' to exit:
-no
+Type 'yes' to continue, type 'no' to exit:<
+no<br>
 Have a nice day! Bye...
 
 ## How to Run
 
 1. **Clone this repository** or download the `.py` file.
 
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/your-username/your-repo-name.git<br>
    cd your-repo-name
 
 2. **Run the script using Python:**
 
 python CaesarCipher.py
 
-**Requirements**
+## Requirements<br>
 Python 3.x
 
 No external libraries required — uses only Python's standard string module.
 
-**Author**
-Gagan V B
+## Author<br>
+Gagan V B<br>
 https://github.com/Gaganvb04
 
 **License**
