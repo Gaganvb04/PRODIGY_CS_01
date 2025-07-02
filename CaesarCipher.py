@@ -1,45 +1,64 @@
 import string
 
-def caesar_cipher_all_chars(text, shift, mode):
-    chars = string.printable  # All printable ASCII characters
+def encryption(plain_text, shift_key):
+    chars = string.printable
     result = ""
-
-    for char in text:
+    for char in plain_text:
         if char in chars:
             idx = chars.index(char)
-            if mode == "encrypt":
-                new_idx = (idx + shift) % len(chars)
-            elif mode == "decrypt":
-                new_idx = (idx - shift) % len(chars)
+            new_idx = (idx + shift_key) % len(chars)
             result += chars[new_idx]
         else:
-            result += char  # Leave unprintable characters unchanged
+            result += char
+    return result
+
+def decryption(cipher_text, shift_key):
+    chars = string.printable
+    result = ""
+    for char in cipher_text:
+        if char in chars:
+            idx = chars.index(char)
+            new_idx = (idx - shift_key) % len(chars)
+            result += chars[new_idx]
+        else:
+            result += char
     return result
 
 def main():
-    print("=== Caesar Cipher (All Characters) ===")
-    message = input("Enter your message: ")
-    
-    while True:
-        try:
-            shift = int(input("Enter shift value (e.g., 3): "))
-            break
-        except ValueError:
-            print("Please enter a valid number.")
+    print("=== Caesar Cipher===")
+    wanna_end = False
 
-    while True:
-        choice = input("Encrypt or Decrypt (E/D)? ").lower()
-        if choice in ['e', 'encrypt']:
-            mode = "encrypt"
-            break
-        elif choice in ['d', 'decrypt']:
-            mode = "decrypt"
-            break
+    while not wanna_end:
+        what_to_do = input("\nType 'encrypt' for encryption, type 'decrypt' for decryption:\n").strip().lower()
+
+        if what_to_do == 'encrypt':
+            text = input("Type your message:\n")
+            try:
+                shift = int(input("Enter shift key:\n"))
+                encrypted = encryption(plain_text=text, shift_key=shift)
+                print(f"\nEncrypted Message: {encrypted}")
+            except ValueError:
+                print("Shift must be a number.")
+                continue
+
+        elif what_to_do == 'decrypt':
+            text = input("Type your message:\n")
+            try:
+                shift = int(input("Enter a value to shift a key:\n"))
+                decrypted = decryption(cipher_text=text, shift_key=shift)
+                print(f"\nDecrypted Message: {decrypted}")
+            except ValueError:
+                print("Shift must be a number.")
+                continue
+
         else:
-            print("Invalid choice. Enter E or D.")
-
-    result = caesar_cipher_all_chars(message, shift, mode)
-    print(f"\nResult ({mode.title()}ed): {result}")
+            print("Invalid choice. Please type 'encrypt' or 'decrypt'.")
+            continue
+        # Ask to continue
+        play_again = input("\nType 'yes' to continue, type 'no' to exit:\n").strip().lower()
+        if play_again in ['no', 'n']:
+            wanna_end = True
+            print("Have a nice day! Bye...")
 
 if __name__ == "__main__":
     main()
