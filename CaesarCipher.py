@@ -44,7 +44,7 @@ def main():
         elif what_to_do == 'decrypt':
             text = input("Type your message:\n")
             try:
-                shift = int(input("Enter a value to shift a key:\n"))
+                shift = int(input("Enter shift key:\n"))
                 decrypted = decryption(cipher_text=text, shift_key=shift)
                 print(f"\nDecrypted Message: {decrypted}")
             except ValueError:
