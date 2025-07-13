@@ -64,9 +64,6 @@ No external libraries required — uses only Python's standard string module.
 Gagan V B<br>
 https://github.com/Gaganvb04
 
-**License**
-This project is open source and available under the MIT License.
-
 ### To Use:
 1. Save this as a file called `README.md` in your project folder.
 2. Replace:
